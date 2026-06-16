@@ -3,6 +3,10 @@
 #include <QString>
 #include <QList>
 #include <QPointer>
+#include <QJsonObject>
+#include <QJsonArray>
+#include <QJsonValue>
+#include <QJsonDocument>
 
 int main(int argc, char *argv[])
 {
@@ -38,6 +42,20 @@ int main(int argc, char *argv[])
 
    QPointer<QCoreApplication> ap;
    ap = &a;
+
+   QJsonObject jo;
+   jo["name"] = "Qt";
+   jo["version"] = 5;
+   jo["awesome"] = true;
+
+   QJsonArray ja;
+   ja.append(1);
+   ja.append("two");
+   ja.append(false);
+
+   QJsonValue jv = jo["name"];
+
+   QJsonDocument jd(jo);
 
 
    return a.exec();

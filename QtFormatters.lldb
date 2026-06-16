@@ -1,4 +1,8 @@
 type summary add -x "^.*QUrl$" -e -F QtFormatters.QUrl_SummaryProvider
+type summary add -x "^.*QJsonObject$" -e -F QtFormatters.QJsonObject_SummaryProvider
+type summary add -x "^.*QJsonArray$" -e -F QtFormatters.QJsonArray_SummaryProvider
+type summary add -x "^.*QJsonDocument$" -e -F QtFormatters.QJsonDocument_SummaryProvider
+type summary add -x "^.*QJsonValue$" -e -F QtFormatters.QJsonValue_SummaryProvider
 type summary add -x "^.*QString$" -e -F QtFormatters.QString_SummaryProvider
 type synthetic add -x "^.*QVector<.+>$" -l QtFormatters.QVector_SyntheticProvider
 type summary add -x "^.*QVector<.+>$" -e -s "size=${svar%#}"
