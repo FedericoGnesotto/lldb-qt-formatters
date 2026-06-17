@@ -106,18 +106,17 @@ def QString_SummaryProvider(valobj, internal_dict):
        except:
            pass
        strval = strval + '"'
-       return strval.encode('utf-8')
+       return strval
 
    #qt5
    def qstring_summary(value):
        try:
            d = value.GetChildMemberWithName('d')
            #have to divide by 2 (size of unsigned short = 2)
-           offset = d.GetChildMemberWithName('offset').GetValueAsUnsigned() / 2
+           offset = d.GetChildMemberWithName('offset').GetValueAsUnsigned() // 2
            size = get_max_size(value)
            return make_string_from_pointer_with_offset(d, offset, size)
        except:
-           print('?????????????????????????')
            return value
 
    def get_max_size(value):
